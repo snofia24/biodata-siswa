@@ -17,7 +17,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+      <img src="{{ asset('admin/docs/assets/img/logo sekolah.png') }}" alt="AdminLTE Logo" class="" style="opacity: .8; width: 300px;">
   </div>
   <!-- /.login-logo -->
   <div class="card">

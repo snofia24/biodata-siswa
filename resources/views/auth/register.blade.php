@@ -17,9 +17,8 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+      <img src="{{ asset('admin/docs/assets/img/logo sekolah.png') }}" alt="AdminLTE Logo" class="" style="opacity: .8; width: 300px;">
   </div>
-
   <div class="card">
     <div class="card-body register-card-body">
       <p class="login-box-msg">Register a new membership</p>
