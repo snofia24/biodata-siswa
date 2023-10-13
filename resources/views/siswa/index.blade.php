@@ -53,11 +53,15 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @forelse ($siswa as $key => $values)
+                                                @forelse ($siswas as $key => $values)
                                                     <tr>
                                                         <td>{{ $key + 1 }}</td>
                                                         <td>{{ $values->nama }}</td>
-                                                        <td>{{ $values->umur }}</td>
+                                                        <td>{{ $values->alamat }}</td>
+                                                        <td>{{ $values->tanggal_lahir }}</td>
+                                                        <td>{{ $values->jenis_kelamin }}</td>
+                                                        <td>{{ $values->jurusan }}</td>
+                                                        <td>{{ $values->agama }}</td>
                                                         <td>
                                                             <form action="{{ route('siswa.destroy', $values->id) }}"
                                                                 method="POST">

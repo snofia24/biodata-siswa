@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\siswa;
+
 
 class SiswaController extends Controller
 {
@@ -30,26 +30,27 @@ class SiswaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $siswa)
+    public function store(Request $request)
     {
         //
-        $siswa->validate([
+        $request->validate([
+            'nis' => 'required',
             'nama' => 'required',
             'alamat' => 'required',
             'tanggal_lahir' => 'required',
             'jenis_kelamin' => 'required',
             'jurusan' => 'required',
-            'jurusan' => 'required',
             'agama' => 'required',
         ]);
 
-        $query = DB::table('siswa')->insert([
-            $table->string('nama', 45),
-            $table->text('alamat'),
-            $table->date('tanggal_lahir'),
-            $table->enum('jenis_kelamin'),
-            $table->string('jurusan', 30),
-            $table->string('agama', 20),
+        $query = DB::table('siswas')->insert([
+            'nis' => $request['nis'],
+            'nama' => $request['nama'],
+            'alamat' => $request['alamat'],
+            'tanggal_lahir' => $request['tanggal_lahir'],
+            'jenis_kelamin' => $request['jenis_kelamin'],
+            'jurusan' => $request['jurusan'],
+            'agama' => $request['agama'],
         ]);
  
         return redirect('/siswa');
@@ -61,8 +62,8 @@ class SiswaController extends Controller
     public function show(string $id)
     {
         //SELECT * FROM siswas WHERE id = $id
-        $siswas = DB::table('siswa')->where('id', $id)->get();
-        return view('siswa.show', compact('siswa'));
+        $siswas = DB::table('siswas')->where('id', $id)->get();
+        return view('siswa.show', compact('siswas'));
     }
 
     /**
@@ -82,25 +83,25 @@ class SiswaController extends Controller
     {
         //
         $request->validate([
+            'nis' => 'required',
             'nama' => 'required',
             'alamat' => 'required',
             'tanggal_lahir' => 'required',
             'jenis_kelamin' => 'required',
             'jurusan' => 'required',
-            'jurusan' => 'required',
             'agama' => 'required',
         ]);
 
-        $query = DB::table('siswa')->where('id', $id)->update([
+        $query = DB::table('siswas')->where('id', $id)->update([
             //'field yang ada di table' => $request['name yang dikirim dari form']
-            $table->string('nama', 45),
-            $table->text('alamat'),
-            $table->date('tanggal_lahir'),
-            $table->enum('jenis_kelamin'),
-            $table->string('jurusan', 30),
-            $table->string('agama', 20),
+            'nis' => $request['nis'],
+            'nama' => $request['nama'],
+            'alamat' => $request['alamat'],
+            'tanggal_lahir' => $request['tanggal_lahir'],
+            'jenis_kelamin' => $request['jenis_kelamin'],
+            'jurusan' => $request['jurusan'],
+            'agama' => $request['agama'],
         ]);
-
         return redirect()->route('siswa.index');
     }
 

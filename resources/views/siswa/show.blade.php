@@ -36,25 +36,61 @@
 
                         <div class="card-body">
                             <div class="form-group">
+                                <label for="nis">NIS</label>
+                                <input type="number" class=" form-control" name="nis" id="nis" placeholder="Masukan NIS" value="{{ $siswas[0]->nis }}" disabled>
+                            </div>
+                            <div class="form-group">
                                 <label for="nama">Nama</label>
-                                <input type="text" class=" form-control" name="nama" id="nama" placeholder="Masukan Nama" value="{{ $siswa[0]->nama }}" disabled>
+                                <input type="text" class=" form-control" name="nama" id="nama" placeholder="Masukan Nama" value="{{ $siswas[0]->nama }}" disabled>
                             </div>
+                            <div class="form-group">
+                                <label for="Tanggal lahir">Tanggal lahir</label>
+                                <input type="date" class="form-control" name="tanggal_lahir" id="kode" placeholder="Masukan Tanggal lahir" value="{{ $siswas[0]->tanggal_lahir }}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="jk">Jenis Kelamin</label>
+                                <select class="custom-select" name="jenis_kelamin" value="{{ $siswas[0]->jenis_kelamin }}" disabled>
+                                    <option selected disabled>Pilih Jenis Kelamin</option>
+                                    <option value="L">LAKI-LAKI</option>
+                                    <option value="P">PEREMPUAN</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Jurusan</label>
+                                <select class="custom-select" name="jurusan" value="{{ $siswas[0]->jurusan }}" disabled>
+                                    <option selected disabled>Pilih Jurusan</option>
+                                    <option value="RPL">RPL</option>
+                                    <option value="DPIB">DPIB</option>
+                                    <option value="TP">TP</option>
+                                    <option value="TFLM">TFLM</option>
+                                    <option value="TEI">TEI</option>
+                                    <option value="TITL">TITL</option>
+                                    <option value="TKJ">TKJ</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Alamat</label>
+                                <textarea class="form-control" rows="3" name="alamat" placeholder="Masukan alamat" value="{{ $siswas[0]->alamat }}" disabled></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Agama</label>
+                                <select class="custom-select" name="agama" value="{{ $siswas[0]->agama }}" disabled>
+                                    <option selected disabled>Pilih Agama</option>
+                                    <option value="ISLAM">Islam</option>
+                                    <option value="KRISTEN">Kristen</option>
+                                </select>
+                            </div>
+                        </div>
                                 
-                            <div class="form-group">
-                                <label for="umur">umur</label>
-                                <input type="number" class="form-control" name="umur" id="umur" placeholder="umur" value="{{ $siswa[0]->umur }}" disabled>
-                            </div>
+                            
 
-                            <div class="form-group">
-                                <label for="bio">Biografi</label>
-                                <textarea name="bio" id="bio" cols="30" rows="10" class="form-control" placeholder="Enter Biografi" disabled>{{ $siswa[0]->bio }}</textarea>
-                            </div>
+                            
 
 
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <a href="/siswa"><button type="submit" class="btn btn-primary">Kembali</button></a>
+                                <a href="{{ route('siswa.index') }}" class="btn btn-primary">Back</a>
                             </div>
 
                         </div>

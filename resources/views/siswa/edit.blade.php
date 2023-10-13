@@ -31,58 +31,67 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ route('siswa.update', $siswa[0]->id) }}" method="POST">
+                        <form action="{{ route('siswa.update', $siswas[0]->id) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="kode_siswa">NISN</label>
-                                    <input type="text" class="form-control @error('kode') is-invalid @enderror" name="kode" id="kode_siswa" placeholder="Masukan Kode" value="{{ $siswa[0]->kode }}">
-                                    @error('kode')
-                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                    @enderror
+                                    <label for="nis">NIS</label>
+                                    <input type="number" class="form-control @error('nis') is-invalid @enderror" name="nis" id="nis" placeholder="Masukan Kode" value="{{ $siswas[0]->nis }}">
                                 </div>
+                                @error('nis')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                @enderror
                                 <div class="form-group">
                                     <label for="nama">Nama</label>
-                                    <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" id="nama" placeholder="Masukan nama" value="{{ $siswa[0]->nama }}">
-                                    @error('nama')
-                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                    @enderror
+                                    <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" id="nama" placeholder="Masukan nama" value="{{ $siswas[0]->nama }}">
                                 </div>
+                                @error('nama')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                @enderror
                                 <div class="form-group">
-                                    <label for="jk">Jenis Kelamin</label>
-                                    <select class="custom-select @error('jk') is-invalid @enderror" name="jk" value="{{ $siswa[0]->jk }}">
-                                        <option selected disabled></option>
-                                        <option value="Laki-laki">LAKI-LAKI</option>
-                                        <option value="perempuan">PEREMPUAN</option>
-                                    </select>
-                                    @error('jk')
-                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                    @enderror
+                                    <label for="Tanggal lahir">Tanggal lahir</label>
+                                    <input type="date" class="form-control" name="tanggal_lahir" id="kode" placeholder="Masukan Tanggal lahir" value="{{ $siswas[0]->nama }}" >
                                 </div>
+                                @error('Tanggal_lahir')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                @enderror
+                                <div class="form-group">
+                                    <label for="jenis_kelamin">Jenis Kelamin</label>
+                                    <select class="custom-select @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin" value="{{ $siswas[0]->jenis_kelamin }}">
+                                        <option selected disabled></option>
+                                        <option value="L">LAKI-LAKI</option>
+                                        <option value="P">PEREMPUAN</option>
+                                    </select>
+                                </div>
+                                @error('jenis_kelamin')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                @enderror
                                 <div class="form-group">
                                     <label>Jurusan</label>
-                                    <input type="text" class="form-control @error('jurusan') is-invalid @enderror" name="jurusan" id="jurusan" placeholder="" value="{{ $siswa[0]->jurusan }}">
-                                    @error('jurusan')
-                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                    @enderror
+                                    <input type="text" class="form-control @error('jurusan') is-invalid @enderror" name="jurusan" id="jurusan" placeholder="" value="{{ $siswas[0]->jurusan }}"> 
                                 </div>
-                                <div class="form-group">
-                                    <label>No. Telepon</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                                        </div>
-                                        <input type="number" class="form-control" name="no" placeholder="Masukan Angka" value="{{ $siswa[0]->no }}">
-                                    @error('tlp')
-                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                    @enderror
-                                    </div>
-                                </div>
+                                 @error('jurusan')
+                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                 @enderror
                                 <div class="form-group">
                                     <label>Alamat</label>
-                                    <textarea class="form-control" rows="3" name="alamat" placeholder="Masukan Alamat">{{ $siswa[0]->alamat }}</textarea>
+                                    <textarea class="form-control @error('alamat') is-invalid @enderror" rows="3" name="alamat" placeholder="Masukan Alamat">{{ $siswas[0]->alamat }}</textarea>
                                 </div>
+                                @error('alamat')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                @enderror
+                                <div class="form-group">
+                                    <label>Agama</label>
+                                    <select class="custom-select @error('agama') is-invalid @enderror" name="agama" value="{{ $siswas[0]->agama }}">
+                                        <option selected disabled>Pilih Agama</option>
+                                        <option value="ISLAM">Islam</option>
+                                        <option value="KRISTEN">Kristen</option>
+                                    </select>
+                                </div>
+                                @error('agama')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="card-footer">
                                 <a href="{{ route('siswa.index') }}" class="btn btn-primary">Back</a>
